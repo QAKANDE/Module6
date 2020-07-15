@@ -2,7 +2,6 @@ const express = require("express")
 const db = require("../../db")
 const routes = express.Router()
 
-
 routes.get('/' , async (req,res)=>{
     const response = await db.query(`select * from "student"`)
     res.send({
@@ -25,7 +24,7 @@ routes.post('/', async(req,res)=>{
 
 routes.post('/checkemail',async(req,res)=>{
   const response = await db.query(`SELECT * from "student" WHERE email=$1`,[req.body.email])
-  if(response.rows.length > 0){
+  if(response.rowCount > 0){
   res.send("Email already exists")
   }
   else

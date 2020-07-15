@@ -28,20 +28,22 @@ routes.post('/:id',async(req,res)=>{
 })
 
 
-routes.put('/projects/:id' ,async (req,res)=>{
+routes.put('/:id' ,async (req,res)=>{
     try {
         let parameters = []
-        let query = 'UPDATE "projects" SET'
+        let query = 'UPDATE "projects" SET '
+
         for(parameterName in req.body) 
         {
-            query += (parameters.length > 0 ? "," : '') + parameterName + "=$" +
-             (parameterName.length + 1 )
+            query += (parameters.length > 0 ? ", " : '') + parameterName + " = $" +
+             (parameters.length + 1 )
              parameters.push(req.body[parameterName])
         }
         parameters.push(req.params.id)
         query += " WHERE projectid = $" + (parameters.length) + " RETURNING *" 
+        console.log(query)
             const result = await db.query(query, parameters) 
-         console.log("ok")
+       res.send(result)
     } catch (error) {
         console.log(error)
     }
