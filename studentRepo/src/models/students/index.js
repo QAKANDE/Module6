@@ -22,7 +22,7 @@ const student = orm.define("student",{
     DOB:{
         type:Sequelize.STRING,
         allowNull: false,
-    },
+    }
 },{
     timestamps:false,
     tableName:"student",

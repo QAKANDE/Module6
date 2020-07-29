@@ -16,11 +16,16 @@ routes.get('/:id' , async(req,res)=>{
     res.send(response)
 })
 routes.post('/:id' , async(req,res)=>{
-    const response = await projects.create({
-        ...req.body,
-        studentid:req.params.id
-    })
-    res.send(response)
+    try {
+        
+        const response = await projects.create({
+            ...req.body,
+            studentid:req.params.id
+        })
+        res.send(response)
+    } catch (error) {
+        console.log(error)
+    }
 })
 routes.put('/:id' ,async (req,res)=>{
     const response = await projects.update({

@@ -41,16 +41,21 @@ routes.put('/:id' ,async (req,res)=>{
 })
 
 routes.delete('/:id', async(req,res)=>{
-    const response = await students.destroy({
-        where:{
-            _id:req.params.id
+    try {
+        
+        const response = await students.destroy({
+            where:{
+                _id:req.params.id
+            }
+        })
+        if(response === 1){
+            res.send("Student Deleted")
         }
-    })
-    if(response === 1){
-        res.send("Student Deleted")
-    }
-    else{
-        res.status(404).send("Not Found")
+        else{
+            res.status(404).send("Not Found")
+        }
+    } catch (error) {
+        console.log(error)
     }
 })
 module.exports = routes

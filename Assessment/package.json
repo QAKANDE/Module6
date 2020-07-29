@@ -1,5 +1,5 @@
 {
-  "name": "studentrepo",
+  "name": "Assessment",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
+    "@sendgrid/mail": "^7.2.1",
     "express": "^4.17.1",
-    "express-list-endpoints": "^5.0.0",
+    "express-validator": "^6.6.0",
+    "pdfmake": "^0.1.66",
     "pg": "^8.3.0",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.3"
+    "roboto-font": "^0.1.0"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.4"
   }
 }

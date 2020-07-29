@@ -28,7 +28,7 @@ const projects = orm.define("projects",{
         allowNull: false,
     },
     creationdate:{
-        type:Sequelize.DATE,
+        type:Sequelize.STRING,
         allowNull:false
     }
 } ,{
